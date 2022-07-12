@@ -85,7 +85,7 @@ Files for development with %{name}.
 # The test suite wants to talk to stuff over dbus, which doesn't
 # work in abf containers. Let's run the tests so we see when
 # things go wrong without making it fatal.
-make check || :
+#make check || :
 
 %install
 %make_install
@@ -111,13 +111,13 @@ EOF
 /bin/systemctl start %{srcname}.service
 
 %post
-%systemd_post ModemManager.service
+# %systemd_post ModemManager.service
 
 %preun
-%systemd_preun ModemManager.service
+# %systemd_preun ModemManager.service
 
 %postun
-%systemd_postun ModemManager.service
+# %systemd_postun ModemManager.service
 
 %files -f %{srcname}.lang
 %doc README AUTHORS
