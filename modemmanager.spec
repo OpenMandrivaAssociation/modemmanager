@@ -24,7 +24,7 @@ Source0:	https://gitlab.freedesktop.org/mobile-broadband/ModemManager/-/archive/
 #Source0:	http://www.freedesktop.org/software/ModemManager/%{srcname}-%{version}.tar.xz
 Source1:	%{name}.rpmlintrc
 BuildRequires:	intltool
-BuildRequires:	bash-completion
+BuildRequires:	pkgconfig(bash-completion)
 BuildRequires:	pkgconfig(polkit-gobject-1)
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(glib-2.0)
