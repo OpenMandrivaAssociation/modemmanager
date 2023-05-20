@@ -69,7 +69,7 @@ Files for development with %{name}.
 %meson	\
 	-Dpolkit=permissive \
 	-Dudev=true \
-	-Dudevdir==$(dirname %{_udevrulesdir}) \
+	-Dudevdir=%{_udevrulesdir} \
 	-Dsystemdsystemunitdir=%{_unitdir} \
 	-Dsystemd_journal=true \
 	-Dat_command_via_dbus=true \
