@@ -15,14 +15,16 @@
 
 Summary:	Mobile broadband modem management service
 Name:		modemmanager
-Version:	1.18.10
-Release:	2
+Version:	1.20.6
+Release:	1
 License:	GPLv2+
 Group:		System/Configuration/Networking
 Url:		http://www.freedesktop.org/software/ModemManager
-Source0:	http://www.freedesktop.org/software/ModemManager/%{srcname}-%{version}.tar.xz
+Source0:	https://gitlab.freedesktop.org/mobile-broadband/ModemManager/-/archive/%{version}/ModemManager-%{version}.tar.bz2
+#Source0:	http://www.freedesktop.org/software/ModemManager/%{srcname}-%{version}.tar.xz
 Source1:	%{name}.rpmlintrc
 BuildRequires:	intltool
+BuildRequires:	pkgconfig(bash-completion)
 BuildRequires:	pkgconfig(polkit-gobject-1)
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(glib-2.0)
@@ -64,31 +66,31 @@ Files for development with %{name}.
 %autosetup -n %{srcname}-%{version} -p1
 
 %build
-%configure \
-	--with-systemdsystemunitdir=%{_unitdir} \
-	--with-udev-base-dir=$(dirname %{_udevrulesdir}) \
-	--with-systemd-journal=yes \
-	--with-dist-version="%{EVRD}" \
-	--with-at-command-via-dbus \
-	--with-polkit=permissive \
-	--enable-more-warnings=no \
+%meson	\
+	-Dpolkit=permissive \
+	-Dudev=true \
+	-Dudevdir=%{_udevrulesdir} \
+	-Dsystemdsystemunitdir=%{_unitdir} \
+	-Dsystemd_journal=true \
+	-Dat_command_via_dbus=true \
+	-Dbash_completion=true \
 %if %{with vala}
-	--enable-vala \
+	-Dvapi=true \
 %else
-	--disable-vala \
+	-Dvapi=false \
 %endif
-	--enable-introspection
+	-Dintrospection=true
 
-%make_build
+%meson_build
 
 %check
 # The test suite wants to talk to stuff over dbus, which doesn't
 # work in abf containers. Let's run the tests so we see when
 # things go wrong without making it fatal.
-make check || :
+#make check || :
 
 %install
-%make_install
+%meson_install
 
 # only used by test suite
 rm -f %{buildroot}%{pppddir}/mm-test-pppd-plugin.so
