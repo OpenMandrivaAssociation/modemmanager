@@ -88,7 +88,6 @@ Files for development with %{name}.
 # work in abf containers. Let's run the tests so we see when
 # things go wrong without making it fatal.
 #make check || :
-meson test	
 
 %install
 %meson_install
