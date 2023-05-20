@@ -140,7 +140,7 @@ EOF
 %{_sbindir}/ModemManager
 %dir %{_libdir}/%{srcname}
 %{_libdir}/%{srcname}/*.so
-#{_udevrulesdir}/*
+%{_udevrulesdir}/*
 %{_unitdir}/ModemManager.service
 %doc %{_mandir}/man1/mmcli.1*
 %doc %{_mandir}/man8/ModemManager.8*
