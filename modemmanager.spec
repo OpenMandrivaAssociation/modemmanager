@@ -19,7 +19,7 @@ Version:	1.22.0
 Release:	1
 License:	GPLv2+
 Group:		System/Configuration/Networking
-Url:		http://www.freedesktop.org/software/ModemManager
+Url:		https://www.freedesktop.org/software/ModemManager
 Source0:	https://gitlab.freedesktop.org/mobile-broadband/ModemManager/-/archive/%{version}/ModemManager-%{version}.tar.bz2
 #Source0:	http://www.freedesktop.org/software/ModemManager/%{srcname}-%{version}.tar.xz
 Source1:	%{name}.rpmlintrc
