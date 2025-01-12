@@ -16,7 +16,7 @@
 Summary:	Mobile broadband modem management service
 Name:		modemmanager
 Version:	1.22.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Configuration/Networking
 Url:		https://www.freedesktop.org/software/ModemManager
@@ -69,7 +69,7 @@ Files for development with %{name}.
 %meson	\
 	-Dpolkit=permissive \
 	-Dudev=true \
-	-Dudevdir=%{_udevrulesdir} \
+	-Dudevdir=%{_udevrulesdir}/.. \
 	-Dsystemdsystemunitdir=%{_unitdir} \
 	-Dsystemd_journal=true \
 	-Dat_command_via_dbus=true \
