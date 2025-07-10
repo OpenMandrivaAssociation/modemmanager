@@ -134,6 +134,7 @@ EOF
 %{_datadir}/ModemManager/fcc-unlock.available.d/*
 %{_datadir}/ModemManager/connection.available.d/*
 %{_datadir}/ModemManager/*.conf
+%{_datadir}/ModemManager/modem-setup.available.d/0000:0000
 %{_iconsdir}/hicolor/22x22/apps/ModemManager.png
 %{_bindir}/mmcli
 %{_datadir}/bash-completion/completions/mmcli
