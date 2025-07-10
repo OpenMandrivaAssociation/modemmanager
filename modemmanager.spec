@@ -122,7 +122,7 @@ EOF
 %systemd_postun ModemManager.service
 
 %files -f %{srcname}.lang
-%doc README AUTHORS
+%doc AUTHORS
 %{_sysconfdir}/dbus-1/system.d/org.freedesktop.ModemManager1.conf
 %{_datadir}/dbus-1/interfaces/*.xml
 %{_datadir}/dbus-1/system-services/org.freedesktop.ModemManager1.service
